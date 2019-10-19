@@ -18,6 +18,15 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- datetime picker CSS -->
+<link href="<?php echo web_root; ?>css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+ <link href="<?php echo web_root; ?>css/datepicker.css" rel="stylesheet" media="screen">
+
+<link href="<?php echo web_root; ?>css/ekko-lightbox.css" rel="stylesheet">
+
+<!-- END OF LINKS -->
+
 <body class="w3-light-grey">
 
 <?php include "includes/layout/top_nav.php"; ?>

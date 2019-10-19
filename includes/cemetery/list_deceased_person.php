@@ -57,15 +57,33 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header" style="height:50px;">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h5 class="modal-title" id="exampleModalLabe"> Update Information </h5>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        <form method="post" action="controller/ibjt/schedule_controller.php">
+
+        <form method="post" action="controller/cemetery/update_controller.php">
+
         <div class="modal-body">
-         <label>Scheduling</label>     
-        <input type="hidden" name="driver_id" id="eventId"/>
+
+        <input type="hidden" name="person_id" id="eventId"/>
         </div>
-        <input type="time" name="time" class="form-control">
-        <input type="date" name="date" class="form-control">
+
+        <div class="form-group">
+          <label> First Name </label>
+          <input type="text" name="first_name" id="first_name" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label> Middle Name </label>
+          <input type="text" name="middle_name" id="middle_name" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label> Last Name </label>
+          <input type="text" name="last_name" id="last_name" class="form-control">
+        </div>
+
+
         <div class="modal-footer">
           <input type="submit" class="btn btn-primary" value="Submit" name="submit" style="background-color:rgb(0,30,66); ">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
@@ -78,6 +96,26 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script>
+$(document.ready(function(){
+  $('.editbtn').on('click', function(){
+
+    $('#editmodal').modal('show');
+
+    $tr = $(this).closest('tr');
+
+    var data = $tr.children("td").map(function() {
+      return $(this).text();
+    }).get();
+
+    console.log(data);
+
+    $('#update_id').val(data[0]);
+    $('#first_name').val(data[1]);
+    $('#middle_name').val(data[2]);
+    $('#last_name').val(data[3]);
+    });
+  });
+
 $(document).on("click", ".open-homeEvents", function () {
      var eventId = $(this).data('id');
      $('#idHolder').html( eventId );

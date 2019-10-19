@@ -1,4 +1,4 @@
-<form method="POST" action="controller/ibjt/register_controller.php">
+<form method="POST" action="controller/cemetery/register_deceased_person_controller.php">
   <form class="form-horizontal span6" action="controller/cemetery/add_deceased_person.php" method="POST" enctype="multipart/form-data"    >
  <div class="row">
          <div class="col-lg-12">
@@ -21,11 +21,35 @@
                  <div class="form-group">
                     <div class="col-md-8">
                       <label class="col-md-4 control-label" for=
-                      "FNAME">Full Name:</label>
+                      "FNAME">First Name:</label>
 
                       <div class="col-md-8">
-                            <input class="form-control input-sm" id="FNAME" name="FNAME" placeholder=
-                            "Full Name" type="text" value="">
+                            <input class="form-control input-sm" id="first_name" name="first_name" placeholder=
+                            "First Name" type="text" value="">
+                      </div>
+                    </div>
+                  </div> 
+
+                  <div class="form-group">
+                    <div class="col-md-8">
+                      <label class="col-md-4 control-label" for=
+                      "FNAME">Middle Name:</label>
+
+                      <div class="col-md-8">
+                            <input class="form-control input-sm" id="middle_name" name="middle_name" placeholder=
+                            "Middle Name" type="text" value="">
+                      </div>
+                    </div>
+                  </div> 
+
+                  <div class="form-group">
+                    <div class="col-md-8">
+                      <label class="col-md-4 control-label" for=
+                      "FNAME">Last Name:</label>
+
+                      <div class="col-md-8">
+                            <input class="form-control input-sm" id="last_name" name="last_name" placeholder=
+                            "Last Name" type="text" value="">
                       </div>
                     </div>
                   </div> 
@@ -38,7 +62,7 @@
                       <div class="col-md-8">
                          <select name="CIVILSTATUS" id="CIVILSTATUS" class="form-control input-sm">
                             <option>Single</option>
-                            <option>Merried</option>
+                            <option>Married</option>
                             <option>Widow</option>
                          </select>
                       </div>
@@ -70,28 +94,6 @@
                     </div>
                   </div>
 
-                  <div class="form-group">
-                    <div class="col-md-8">
-                      <label class="col-md-4 control-label" for=
-                      "CATEGORIES">Section:</label>
-
-                      <div class="col-md-8">
-                       <select class="form-control input-sm" name="CATEGORIES" id="CATEGORIES">
-                          <option value="None">Select Section</option>
-                          <?php
-                            //Statement
-                          $mydb->setQuery("SELECT * FROM `cemetery_table_category`");
-                          $cur = $mydb->loadResultList();
-
-                        foreach ($cur as $result) {
-                          echo  '<option value='.$result->CATEGORIES.' >'.$result->CATEGORIES.'</option>';
-                          }
-                          ?>
-          
-                        </select> 
-                      </div>
-                    </div>
-                  </div>
 
               <div class="form-group">
                     <div class="col-md-8">
@@ -103,7 +105,7 @@
                           <div class="input-group-addon"> 
                             <i class="fa fa-calendar"></i>
                           </div>
-                          <input id="datemask2" name="BORNDATE"  value="" type="text" class="form-control input-sm datemask2"   data-inputmask="'alias': 'mm/dd/yyyy'" data-mask >
+                          <input id="datemask2" name="BORNDATE"  value="" type="date" class="form-control input-sm datemask2"   data-inputmask="'alias': 'mm/dd/yyyy'" data-mask >
                         </div>
                       </div>
                     </div>
@@ -119,7 +121,7 @@
                           <div class="input-group-addon"> 
                             <i class="fa fa-calendar"></i>
                           </div>
-                          <input id="datemask2" name="DIEDDATE"  value="" type="text" class="form-control input-sm datemask2"   data-inputmask="'alias': 'mm/dd/yyyy'" data-mask >
+                          <input id="datemask2" name="DIEDDATE"  value="" type="date" class="form-control input-sm datemask2"   data-inputmask="'alias': 'mm/dd/yyyy'" data-mask >
                         </div>
                       </div>
                     </div>
@@ -135,6 +137,7 @@
                           <option value="None">Select Location</option>
                           <option value="PALAO PUBLIC CEMETERY">PALAO PUBLIC CEMETERY</option>
                           <option value="VILLA VERDE PUBLIC CEMETERY">VILLA VERDE PUBLIC CEMETERY</option>
+                          <option value="DALIPUGA PUBLIC CEMETERY">DALIPUGA PUBLIC CEMETERY</option>
           
                         </select> 
                       </div>
@@ -149,7 +152,7 @@
                       <div class="col-md-8">
                           <select name="TYPE" id="TYPE" class="form-control input-sm">
                             <option>BURIAL</option>
-                            <option>RESERVE</option> 
+                            <option>RESERVATION</option> 
                          </select>
                       </div>
                     </div>
