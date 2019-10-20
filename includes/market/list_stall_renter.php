@@ -8,25 +8,32 @@
       <th scope="col">Gender</th>
       <th scope="col">Civil Status</th>
       <th scope="col">Address</th>
-      <th scope="col">Age</th>
-      <th scope="col">Birthdate</th>  
-      <th scope="col">Location</th> 
+      <th scope="col">Birthdate</th>
       <th scope="col">Stall Section</th>   
       <th scope="col">Photo</th>
-      <th scope="col">StallPic</th>   
+      <th scope="col">Stall Image</th>   
+      <th scope="col">Attachment File</th> 
       <th scope="col">Options</th> 
 		</tr>
 	</thead>
 <?php
-	$sql = "SELECT * FROM ibjt_drivers";
+	$sql = "SELECT * FROM market_tbl_renters";
 	$result = mysqli_query($conn, $sql);
 	while($data = mysqli_fetch_assoc($result)){
 ?>
 		<tr>
 
-			<td><?php echo $data['driver_id']; ?></td>
-			<td><?php echo $data['first_name'] . ' ' . $data['last_name']; ?></td>
-			<td><button class="open-homeEvents btn btn-primary" data-id="<?php echo $data['driver_id'] ?>"  data-toggle="modal" data-target="#modalHomeEvents">Schedule</button></td>
+			<td><?php echo $data['stall_id']; ?></td>
+			<td><?php echo $data['f_name'] . ' ' . $data['l_name']; ?></td>
+      <td><?php echo $data['gender']; ?></td>
+      <td><?php echo $data['c_status']; ?></td>
+      <td><?php echo $data['address']; ?></td>
+      <td><?php echo $data['b_date']; ?></td>
+      <td><?php echo $data['stall_section']; ?></td>
+      <td><?php echo $data['person_image']; ?></td>
+      <td><?php echo $data['stall_image']; ?></td>
+      <td><?php echo $data['attachment_file']; ?></td>
+			<td><button class="open-homeEvents btn btn-primary" data-id="<?php echo $data['market_id'] ?>"  data-toggle="modal" data-target="#modalHomeEvents">Modify</button></td>
 		</tr>
 <?php
 	}
@@ -41,10 +48,10 @@
         <div class="modal-header" style="height:50px;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        <form method="post" action="controller/ibjt/schedule_controller.php">
+        <form method="post" action="controller/market/list_stall_controller.php">
         <div class="modal-body">
          <label>Scheduling</label>     
-        <input type="hidden" name="driver_id" id="eventId"/>
+        <input type="hidden" name="market_id" id="eventId"/>
         </div>
         <input type="time" name="time" class="form-control">
         <input type="date" name="date" class="form-control">
