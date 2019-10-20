@@ -4,18 +4,19 @@
 	<thead>
 		<tr>
 			<th scope="col">Person Id</th>
+      <th scope="col">Grave Number</th>
 			<th scope="col">Person Name</th>
       <th scope="col">Civil Status</th>
       <th scope="col">Address</th>
       <th scope="col">Gender</th>
-      <th scope="col">Age</th>
       <th scope="col">Born</th>
       <th scope="col">Died</th>  
       <th scope="col">Section</th>   
-      <th scope="col">Location</th>  
-      <th scope="col">Type</th>  
+      <th scope="col">Location</th>   
       <th scope="col">Photo</th>
-      <th scope="col">GravePic</th>   
+      <th scope="col">GravePic</th>
+      <th scope="col">Type</th>
+      <th scope="col">Attachment File</th>    
       <th scope="col">Options</th> 
 		</tr>
 	</thead>
@@ -27,18 +28,20 @@
 		<tr>
 
 			<td><?php echo $data['people_id']; ?></td>
+      <td><?php echo $data['grave_no']; ?></td>
 			<td><?php echo $data['first_name'] . ' ' . $data['last_name']; ?></td>
       <td><?php echo $data['civil_status']; ?></td>
       <td><?php echo $data['address']; ?></td>
       <td><?php echo $data['sex']; ?></td>
-      <td><?php echo $data['age']; ?></td>
       <td><?php echo $data['borndate']; ?></td>
       <td><?php echo $data['dieddate']; ?></td>
       <td><?php echo $data['categories']; ?></td>
       <td><?php echo $data['location']; ?></td>
-      <td><?php echo $data['type']; ?></td>
       <td><?php echo $data['photo']; ?></td>
       <td><?php echo $data['gravepic']; ?></td>
+      <td><?php echo $data['type']; ?></td>
+      <td><?php echo $data['attachment_file']; ?></td>
+
 
 
 			<td><button class="open-homeEvents btn btn-primary" data-id="<?php echo $data['people_id'] ?>"  data-toggle="modal" data-target="#modalHomeEvents">Update</button></td>
