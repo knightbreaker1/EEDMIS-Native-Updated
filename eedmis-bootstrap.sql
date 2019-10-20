@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 19, 2019 at 06:06 PM
+-- Generation Time: Oct 20, 2019 at 07:54 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.31
 
@@ -117,7 +117,30 @@ CREATE TABLE `ibjt_schedule` (
 --
 
 INSERT INTO `ibjt_schedule` (`schedule_id`, `driver_id`, `schedule_time`, `schedule_date`) VALUES
-(2, 1, '02:12:00', '2019-10-17');
+(2, 1, '02:12:00', '2019-10-17'),
+(3, 1, '01:01:00', '1111-01-01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `market_tbl_category`
+--
+
+CREATE TABLE `market_tbl_category` (
+  `market_id` int(11) NOT NULL,
+  `stall_id` int(11) NOT NULL,
+  `f_name` varchar(50) NOT NULL,
+  `m_name` varchar(50) NOT NULL,
+  `l_name` varchar(50) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `c_status` varchar(10) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `b_date` date NOT NULL,
+  `stall_section` varchar(50) NOT NULL,
+  `person_image` varchar(200) NOT NULL,
+  `stall_image` varchar(200) NOT NULL,
+  `attachment_file` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -155,7 +178,8 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name
 (1, 'ibjt', 'ibjt', 'ibjt', 'admin', 'ibjt', NULL),
 (2, 'admin', 'admin', 'James', 'Acain', 'admin', NULL),
 (3, 'slaughterhouse', 'slaughterhouse', 'slaughterhouse', 'slaughterhouse', 'slaughterhouse', NULL),
-(5, 'cemetery', 'cemetery', 'cemetery', 'cemetery', 'cemetery', NULL);
+(5, 'cemetery', 'cemetery', 'cemetery', 'cemetery', 'cemetery', NULL),
+(6, 'market', 'market', 'Market Admin', 'Admin', 'market', NULL);
 
 --
 -- Indexes for dumped tables
@@ -184,6 +208,12 @@ ALTER TABLE `ibjt_drivers`
 --
 ALTER TABLE `ibjt_schedule`
   ADD PRIMARY KEY (`schedule_id`);
+
+--
+-- Indexes for table `market_tbl_category`
+--
+ALTER TABLE `market_tbl_category`
+  ADD PRIMARY KEY (`market_id`);
 
 --
 -- Indexes for table `slaughterhouse_pricing`
@@ -223,7 +253,13 @@ ALTER TABLE `ibjt_drivers`
 -- AUTO_INCREMENT for table `ibjt_schedule`
 --
 ALTER TABLE `ibjt_schedule`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `market_tbl_category`
+--
+ALTER TABLE `market_tbl_category`
+  MODIFY `market_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `slaughterhouse_pricing`
@@ -235,7 +271,7 @@ ALTER TABLE `slaughterhouse_pricing`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
