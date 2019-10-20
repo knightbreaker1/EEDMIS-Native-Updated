@@ -1,5 +1,12 @@
 EEDMO (Management Information System) - Thesis
 
+UPDATED AS OF OCTOBER 20 ----- 1:27 PM
+
+Market Updated, Bugs need to be fix for mapping
+=====================================
+
+
+
 UPDATED AS OF OCTOBER 20 ---- 1:30 AM
 
 Value Retrieval in Modal needed to be fix
