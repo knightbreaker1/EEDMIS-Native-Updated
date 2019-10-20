@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2019 at 07:54 AM
+-- Generation Time: Oct 20, 2019 at 08:24 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.31
 
@@ -127,6 +127,16 @@ INSERT INTO `ibjt_schedule` (`schedule_id`, `driver_id`, `schedule_time`, `sched
 --
 
 CREATE TABLE `market_tbl_category` (
+  `market_tbl_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `market_tbl_renters`
+--
+
+CREATE TABLE `market_tbl_renters` (
   `market_id` int(11) NOT NULL,
   `stall_id` int(11) NOT NULL,
   `f_name` varchar(50) NOT NULL,
@@ -141,6 +151,17 @@ CREATE TABLE `market_tbl_category` (
   `stall_image` varchar(200) NOT NULL,
   `attachment_file` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `market_tbl_renters`
+--
+
+INSERT INTO `market_tbl_renters` (`market_id`, `stall_id`, `f_name`, `m_name`, `l_name`, `gender`, `c_status`, `address`, `b_date`, `stall_section`, `person_image`, `stall_image`, `attachment_file`) VALUES
+(0, 2, 'Volks', '', 'Wagen', 'Male', 'Single', 'CDO', '1995-10-10', '1', '', '', ''),
+(1, 1, 'Wendalle', 'V', 'Dy', 'Male', 'Single', 'Rogongon', '1997-08-20', '1', '', '', ''),
+(3, 3, 'Honda', 'V', 'Civic', 'Male', 'Single', 'Rogongon', '1997-08-20', '4', '', '', ''),
+(4, 4, 'Mitsubishi', 'V', 'Lancer', 'Male', 'Single', 'Japan', '1997-08-20', '2', '', '', ''),
+(5, 4, 'Kia', 'V', 'Sorento', 'Female', 'Married', 'Korea', '1997-08-20', '2', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -213,6 +234,12 @@ ALTER TABLE `ibjt_schedule`
 -- Indexes for table `market_tbl_category`
 --
 ALTER TABLE `market_tbl_category`
+  ADD PRIMARY KEY (`market_tbl_id`);
+
+--
+-- Indexes for table `market_tbl_renters`
+--
+ALTER TABLE `market_tbl_renters`
   ADD PRIMARY KEY (`market_id`);
 
 --
@@ -259,7 +286,13 @@ ALTER TABLE `ibjt_schedule`
 -- AUTO_INCREMENT for table `market_tbl_category`
 --
 ALTER TABLE `market_tbl_category`
-  MODIFY `market_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `market_tbl_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `market_tbl_renters`
+--
+ALTER TABLE `market_tbl_renters`
+  MODIFY `market_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `slaughterhouse_pricing`
